@@ -1,8 +1,10 @@
 import {createAppContainer, createSwitchNavigator} from 'react-navigation';
 import {createStackNavigator} from 'react-navigation-stack';
-import Login from './Login';
+import Dashboard from './Dashboard'
 import Inventory from './Inventory'
+import Login from './Login';
 import React from 'react'
+import { hamburgetMenu } from './IconStore'
 import {Image, TouchableNativeFeedback} from 'react-native';
 
 const AuthStack = createStackNavigator({
@@ -22,17 +24,18 @@ const AuthStack = createStackNavigator({
     },
     headerLeft: (
       <TouchableNativeFeedback onPress={(e) => alert('Hamburger menu not implemented yet')}>
-        <Image source={require('./assets/menu.png')} style={{width: 36, height: 36, margin: 6}} />
+        <Image source={hamburgetMenu} style={{width: 36, height: 36, margin: 6}} />
       </TouchableNativeFeedback>
     )
   }
 })
 
 const AppStack = createStackNavigator({
+    Dashboard: Dashboard,
     Inventory: Inventory
   },
   {
-    initialRouteName: 'Inventory',
+    initialRouteName: 'Dashboard',
     defaultNavigationOptions: {
       title: 'DavInventory',
       headerStyle: {
@@ -58,7 +61,7 @@ const AppContainer = createAppContainer(
     Auth: AuthStack
   },
   {
-    initialRouteName: 'Auth'
+    initialRouteName: 'App'
   }
 ));
 

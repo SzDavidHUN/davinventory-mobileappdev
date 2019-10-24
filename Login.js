@@ -8,7 +8,7 @@ const Login = props => {
   const doLogin = () => {
     console.log('Username: ', usernameInput, ' Password: ', passwordInput);
     if (usernameInput === 'Asd' && passwordInput === 'asd') {
-      props.navigation.navigate('Inventory');
+      props.navigation.navigate('Dashboard');
       return true
     } else {
       alert('Incorrect password/username');
