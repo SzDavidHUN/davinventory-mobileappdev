@@ -22,6 +22,11 @@ const NewItem = props => {
     if (isNaN(quantity)) {
       alert('Quantity is not a number')
       return
+    } else if (switchState) {
+        if (Number.parseInt(quantity) != Number.parseFloat(quantity)){
+            alert('Not an integer')
+            return
+        }
     }
 
     const item = {
