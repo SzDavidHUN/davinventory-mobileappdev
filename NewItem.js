@@ -43,6 +43,8 @@ const NewItem = props => {
     }
 
     AsyncStorage.setItem('ITEMS', JSON.stringify([item, ...JSON.parse(await AsyncStorage.getItem('ITEMS'))]))
+
+    props.navigation.navigate('Dashboard')
   };
 
   return (
